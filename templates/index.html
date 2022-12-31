@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body
+    {
+      /* background-image: url({{url_for('static',filename= 'images/Boston_House1.png')}}) */
+      background-color: rgba(115, 191, 101, 0.556); 
+    }
+  </style>
+</head>
+<body>
+
+<h2>PREDICT RESULT</h2>
+<h5>THIS PAGE WILL PREDICT WHETHER OR NOT TO LEND MONEY TO BORROWER BASED ON THE INPUT DATA FOR FOLLOWING VARIABLES</h5>
+
+<form action="/submit" method='post'>
+  
+  <label for="loan_amnt" style="font-size: 17px"><b>loan_amnt</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="loan_amnt" name="loan_amnt"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="emp_length" style="font-size: 17px"><b>emp_length</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="emp_length" name="emp_length"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="annual_inc" style="font-size: 17px"><b>annual_inc</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="annual_inc" name="annual_inc"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="total_acc" style="font-size: 17px"><b>total_acc</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="total_acc" name="total_acc"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="total_pymnt" style="font-size: 17px"><b>total_pymnt</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="total_pymnt" name="total_pymnt"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="recoveries" style="font-size: 17px"><b>recoveries</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="recoveries" name="recoveries"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="last_pymnt_amnt" style="font-size: 17px"><b>last_pymnt_amnt</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="last_pymnt_amnt" name="last_pymnt_amnt"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="last_fico_range_high" style="font-size: 17px"><b>last_fico_range_high</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="last_fico_range_high" name="last_fico_range_high"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="last_fico_range_low" style="font-size: 17px"><b>last_fico_range_low</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="last_fico_range_low" name="last_fico_range_low"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="tot_coll_amt" style="font-size: 17px"><b>tot_coll_amt</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="tot_coll_amt" name="tot_coll_amt"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="tot_cur_bal" style="font-size: 17px"><b>tot_cur_bal</b></label><br>
+  <input type="number" step="0.1" class="form-control" id="tot_cur_bal" name="tot_cur_bal"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="term" style="font-size: 17px"><b>term</b></label><br>
+  <input type="text"  class="form-control" id="term" name="term"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="home_ownership" style="font-size: 17px"><b>home_ownership</b></label><br>
+  <input type="text"  class="form-control" id="home_ownership" name="home_ownership"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="verification_status" style="font-size: 17px"><b>verification_status</b></label><br>
+  <input type="text"  class="form-control" id="verification_status" name="verification_status"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="pymnt_plan" style="font-size: 17px"><b>pymnt_plan</b></label><br>
+  <input type="text"  class="form-control" id="pymnt_plan" name="pymnt_plan"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="purpose" style="font-size: 17px"><b>purpose</b></label><br>
+  <input type="text"  class="form-control" id="purpose" name="purpose"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="zip_code" style="font-size: 17px"><b>zip_code</b></label><br>
+  <input type="text"  class="form-control" id="zip_code" name="zip_code"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="last_pymnt_d" style="font-size: 17px"><b>last_pymnt_d</b></label><br>
+  <input type="text"  class="form-control" id="last_pymnt_d" name="last_pymnt_d"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="last_credit_pull_d" style="font-size: 17px"><b>last_credit_pull_d</b></label><br>
+  <input type="text"  class="form-control" id="last_credit_pull_d" name="last_credit_pull_d"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="application_type" style="font-size: 17px"><b>application_type</b></label><br>
+  <input type="text"  class="form-control" id="application_type" name="application_type"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  <label for="debt_settlement_flag" style="font-size: 17px"><b>debt_settlement_flag</b></label><br>
+  <input type="text"  class="form-control" id="debt_settlement_flag" name="debt_settlement_flag"
+  placeholder="Enter the value" style="font-weight: bold"required/><br><br>
+
+  
+
+  <!-- <label for="Dummy" style="font-size: 17px "><b>Dummy</b></label>
+  <select
+    onchange="print_city('state', this.selectedIndex);"
+    id="sts"
+    name="stt"
+    class="form-control"
+    style="font-weight: bold; color: black;"
+  
+    required
+  ></select>
+  <br />
+  <label for="Dummy" style="font-size: 17px"><b>Dummy</b></label>
+  <select
+    id="state"
+    class="form-control"
+    name="city"
+    style="font-weight: bold; color: black;"
+    required
+  ></select>
+  <script language="javascript">
+    print_state("sts");
+  </script> -->
+  
+  <!-- ABOVE COMMENTED IS FOR FURTHER REFERENCE ONLY -->
+
+  <input type="submit" value="SUBMIT_AND_PREDICT">
+</form> 
+
+<p>Click the "PREDICT_PRICE" button, the form-data will be sent to a page with url "/submit".</p>
+
+</body>
+</html>
+
+<!--  <!DOCTYPE html> All HTML documents must start with a <!DOCTYPE> declaration. -->
+<!-- <body></body> <body> element contains all the contents of an HTML document, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.-->
+
+<!--  <br>  Line Break  -->
+<!-- <h2></h2> It defines the second-level headings on your webpage-->
+<!-- <p></p> <p> element defines a paragraph. A paragraph always starts on a new line-->
